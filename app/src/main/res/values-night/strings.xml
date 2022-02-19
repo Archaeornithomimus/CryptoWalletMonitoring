@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="boughtFor">achetée à : </string>
+    <string name="boughtOn">achetée le : </string>
+    <string name="boughtOnError">Erreur sur la date d\'achat</string>
+    <string name="validateButton">Valider</string>
+    <string name="boughtDateLabel">Date d\'achat :</string>
+    <string name="cryptoNameLabel">Nom de la crypto :</string>
+    <string name="titleDialog">Ajouter une crypto au portefeuille</string>
+    <string name="spinnerLabel">Type d\'ajout au portefeuille</string>
+    <string name="cancel_button">Annuler</string>
+    <string name="boughtType">Crypto achetée</string>
+    <string name="cryptoQuantityLabel">Quantité achetée :</string>
+    <string name="quantityBought">"Quantité achetée : "</string>
+    <string name="fragmentTitle">Crypto achetée</string>
+
+</resources>
