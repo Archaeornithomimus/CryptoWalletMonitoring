@@ -36,11 +36,40 @@ public class MainActivity extends AppCompatActivity {
         transaction.add(R.id.dynamicFragment,boughtCryptoFragment);
         transaction.commit();
 
+
         FloatingActionButton addButton = this.findViewById(R.id.addFloatingActionButton);
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 addNew(view);
+            }
+        });
+
+        Button buttonSwitchToBought = this.findViewById(R.id.buttonSwitchToBought);
+        Button buttonSwitchToEarn = this.findViewById(R.id.buttonSwitchToEarn);
+
+        buttonSwitchToEarn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                fragmentManager = getFragmentManager();
+                if (fragmentManager.findFragmentById(R.id.dynamicFragment).getClass()==BoughtCryptoFragment.class) {
+                    FragmentTransaction transaction = fragmentManager.beginTransaction();
+                    EarnCryptoFragment earnCryptoFragment = new EarnCryptoFragment();
+                    transaction.replace(R.id.dynamicFragment, earnCryptoFragment);
+                    transaction.commit();
+                }
+            }
+        });
+
+        buttonSwitchToBought.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                fragmentManager = getFragmentManager();
+                if (fragmentManager.findFragmentById(R.id.dynamicFragment).getClass()==EarnCryptoFragment.class) {
+                    FragmentTransaction transaction = fragmentManager.beginTransaction();
+                    transaction.replace(R.id.dynamicFragment, boughtCryptoFragment);
+                    transaction.commit();
+                }
             }
         });
     }
@@ -56,6 +85,8 @@ public class MainActivity extends AppCompatActivity {
         EditText boughtDateEditText = (EditText) mView.findViewById(R.id.boughtDateEditText);
         EditText boughtQuantityEditText = (EditText) mView.findViewById(R.id.boughtQuantityEditText);
         TextView boughtPriceLabel = (TextView) mView.findViewById(R.id.boughtPriceLabel);
+        TextView boughtQuantity = (TextView) mView.findViewById(R.id.cryptoQuantityLabel);
+        TextView boughtDate = (TextView) mView.findViewById(R.id.boughtDateLabel);
 
         ArrayList<String> typeAddList = new ArrayList<>();
         typeAddList.add((String)getText(R.string.boughtType));
@@ -76,9 +107,17 @@ public class MainActivity extends AppCompatActivity {
                 if(selectType.equals((String)getText(R.string.boughtType))){
                     boughtPriceLabel.setVisibility(View.VISIBLE);
                     boughtPriceEditText.setVisibility(View.VISIBLE);
+                    boughtDateEditText.setVisibility(View.VISIBLE);
+                    boughtQuantity.setText(R.string.quantityBought);
+                    boughtDate.setVisibility(View.VISIBLE);
+
                 } else {
+
                     boughtPriceLabel.setVisibility(View.INVISIBLE);
                     boughtPriceEditText.setVisibility(View.INVISIBLE);
+                    boughtDateEditText.setVisibility(View.INVISIBLE);
+                    boughtQuantity.setText(R.string.quantityEarn);
+                    boughtDate.setVisibility(View.INVISIBLE);
                 }
             }
 
@@ -114,12 +153,12 @@ public class MainActivity extends AppCompatActivity {
                     }
                 } else {
                     if (!cryptoNameLabelEditText.getText().toString().isEmpty() && !boughtQuantityEditText.getText().toString().isEmpty()) {
-                        Crypto crypto = new Crypto(boughtDateEditText.getText().toString(), 0, boughtDateEditText.getText().toString(), Double.parseDouble(String.valueOf(boughtQuantityEditText.getText())));
+                        Crypto crypto = new Crypto(boughtDateEditText.getText().toString(), 0, "", Double.parseDouble(String.valueOf(boughtQuantityEditText.getText())));
                         db.insertNewCryptoEarn(crypto);
 
                         FragmentTransaction transaction = fragmentManager.beginTransaction();
-                        BoughtCryptoFragment boughtCryptoFragment = new BoughtCryptoFragment();
-                        transaction.replace(R.id.dynamicFragment,boughtCryptoFragment);
+                        EarnCryptoFragment earnCryptoFragment = new EarnCryptoFragment();
+                        transaction.replace(R.id.dynamicFragment,earnCryptoFragment);
                         transaction.commit();
                         alertDialog.dismiss();
                     } else {

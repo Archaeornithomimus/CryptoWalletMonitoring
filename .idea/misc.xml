@@ -3,6 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/valen/AndroidStudioProjects/CryptoWalletMonitoring/app/src/main/res/layout/activity_main.xml" value="0.14375" />
+        <entry key="..\:/Users/valen/AndroidStudioProjects/CryptoWalletMonitoring/app/src/main/res/layout/bought_fragment.xml" value="0.1" />
+        <entry key="..\:/Users/valen/AndroidStudioProjects/CryptoWalletMonitoring/app/src/main/res/layout/bought_list.xml" value="0.14375" />
+        <entry key="..\:/Users/valen/AndroidStudioProjects/CryptoWalletMonitoring/app/src/main/res/layout/dialog_custom_add.xml" value="0.14375" />
+        <entry key="..\:/Users/valen/AndroidStudioProjects/CryptoWalletMonitoring/app/src/main/res/layout/earn_fragment.xml" value="0.14375" />
         <entry key="..\:/Users/valen/Desktop/code/CryptoWalletMonitoring/app/src/main/res/layout/activity_main.xml" value="0.4741847826086957" />
         <entry key="..\:/Users/valen/Desktop/code/CryptoWalletMonitoring/app/src/main/res/layout/bought_crypto_list.xml" value="0.5541666666666667" />
         <entry key="..\:/Users/valen/Desktop/code/CryptoWalletMonitoring/app/src/main/res/layout/bought_fragment.xml" value="0.4741847826086957" />

@@ -10,9 +10,17 @@
     <string name="titleDialog">Ajouter une crypto au portefeuille</string>
     <string name="spinnerLabel">Type d\'ajout au portefeuille</string>
     <string name="cancel_button">Annuler</string>
+
     <string name="boughtType">Crypto achetée</string>
     <string name="earnType">Crypto gagnée</string>
+
     <string name="cryptoQuantityLabel">Quantité achetée :</string>
-    <string name="quantityBought">"Quantité achetée : "</string>
-    <string name="fragmentTitle">Crypto achetée</string>
+
+    <string name="quantityBought">Quantité :</string>
+    <string name="quantityEarn">Quantité gagnée :</string>
+
+    <string name="fragmentBoughtTitle">Crypto achetée</string>
+    <string name="fragmentEarnTitle">Crypto gagnée</string>
+
+
 </resources>

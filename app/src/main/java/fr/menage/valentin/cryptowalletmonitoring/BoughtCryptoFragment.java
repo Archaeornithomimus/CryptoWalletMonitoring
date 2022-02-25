@@ -29,7 +29,6 @@ public class BoughtCryptoFragment extends Fragment {
     }
 
     public void printListCrypto(){
-
         cryptoArrayList = db.getAllCryptoBought();
         cryptoBoughtArrayAdapter = new CryptoBoughtArrayAdapter(getActivity(), R.layout.bought_list, cryptoArrayList);
         listView.setAdapter(cryptoBoughtArrayAdapter);

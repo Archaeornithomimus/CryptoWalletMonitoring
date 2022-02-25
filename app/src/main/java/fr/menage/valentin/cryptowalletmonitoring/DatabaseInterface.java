@@ -12,7 +12,7 @@ public class DatabaseInterface extends SQLiteOpenHelper {
     SQLiteDatabase db;
 
     public DatabaseInterface(Context context){
-        super(context,"cryptowalletmonitoring",null,2);
+        super(context,"cryptowalletmonitoring",null,3);
         this.db = getWritableDatabase();
     }
 
@@ -81,7 +81,7 @@ public class DatabaseInterface extends SQLiteOpenHelper {
         ArrayList<Crypto> cryptoEarnArrayList = new ArrayList<Crypto>();
         Cursor c = db.rawQuery("SELECT * FROM EarnCrypto;",null);
         while (c.moveToNext()){
-            Crypto crypto = new Crypto(c.getInt(0),c.getString(1),0,c.getString(3),c.getDouble(4));
+            Crypto crypto = new Crypto(c.getInt(0),c.getString(1),0,c.getString(2),c.getDouble(3));
             cryptoEarnArrayList.add(crypto);
         }
         c.close();
