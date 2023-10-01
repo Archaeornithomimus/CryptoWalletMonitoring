@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class EarnCryptoFragment extends Fragment {
     DatabaseInterface db = null;
-    CryptoBoughtArrayAdapter cryptoBoughtArrayAdapter;
+    CryptoEarnArrayAdapter cryptoEarnArrayAdapter;
     ArrayList<Crypto> cryptoArrayList;
     ListView listView;
     private Context context;
@@ -30,16 +30,16 @@ public class EarnCryptoFragment extends Fragment {
 
     public void printListCrypto(){
         cryptoArrayList = db.getAllCryptoEarn();
-        cryptoBoughtArrayAdapter = new CryptoBoughtArrayAdapter(getActivity(), R.layout.bought_list, cryptoArrayList);
-        listView.setAdapter(cryptoBoughtArrayAdapter);
+        cryptoEarnArrayAdapter = new CryptoEarnArrayAdapter(getActivity(), R.layout.bought_list, cryptoArrayList);
+        listView.setAdapter(cryptoEarnArrayAdapter);
 
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 Crypto crypto = (Crypto)parent.getItemAtPosition(position);
-                db.deleteCrypto(crypto);
+                db.deleteCryptoEarn(crypto);
                 cryptoArrayList.remove(crypto);
-                cryptoBoughtArrayAdapter.notifyDataSetChanged();
+                cryptoEarnArrayAdapter.notifyDataSetChanged();
                 return true;
             }
         });

@@ -112,7 +112,11 @@ public class DatabaseInterface extends SQLiteOpenHelper {
         return crypto;
     }
 
-    public void deleteCrypto(Crypto crypto) {
+    public void deleteCryptoEarn(Crypto crypto) {
+        db.delete("EarnCrypto", "id = ?", new String[]{String.valueOf(crypto.getId())});
+    }
+
+    public void deleteCryptoBought(Crypto crypto) {
         db.delete("BoughtCrypto", "id = ?", new String[]{String.valueOf(crypto.getId())});
     }
 }

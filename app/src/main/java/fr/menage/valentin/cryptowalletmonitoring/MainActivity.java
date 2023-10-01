@@ -153,9 +153,8 @@ public class MainActivity extends AppCompatActivity {
                     }
                 } else {
                     if (!cryptoNameLabelEditText.getText().toString().isEmpty() && !boughtQuantityEditText.getText().toString().isEmpty()) {
-                        Crypto crypto = new Crypto(boughtDateEditText.getText().toString(), 0, "", Double.parseDouble(String.valueOf(boughtQuantityEditText.getText())));
+                        Crypto crypto = new Crypto(cryptoNameLabelEditText.getText().toString(), 0, "", Double.parseDouble(String.valueOf(boughtQuantityEditText.getText())));
                         db.insertNewCryptoEarn(crypto);
-
                         FragmentTransaction transaction = fragmentManager.beginTransaction();
                         EarnCryptoFragment earnCryptoFragment = new EarnCryptoFragment();
                         transaction.replace(R.id.dynamicFragment,earnCryptoFragment);

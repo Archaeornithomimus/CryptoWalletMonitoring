@@ -37,7 +37,7 @@ public class BoughtCryptoFragment extends Fragment {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 Crypto crypto = (Crypto)parent.getItemAtPosition(position);
-                db.deleteCrypto(crypto);
+                db.deleteCryptoBought(crypto);
                 cryptoArrayList.remove(crypto);
                 cryptoBoughtArrayAdapter.notifyDataSetChanged();
                 return true;
